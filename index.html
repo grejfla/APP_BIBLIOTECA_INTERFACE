@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Biblioteca - Desenvolvido por Flávio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1> Sistema Bibliotecario</h1>
@@ -11,23 +12,52 @@
     <div class="container">
         <h2> Cadastro Usuário</h2>
         <form action="#" method="post">
-            <label for="tipo de usuario">selecione o usuario</label>
+            <label for="tipo de usuario">select o tipo de  usuario</label>
             <select id="tipo de usuario" name="tipo de usuario" required>
-            <option value="">--Escolha uma opção --</option>
-            <option value="NomeAluno">Aluno</option>
-            <option value="NomeFuncionario">Funcionário</option>
-
-
-
-
-
-            </select>
-            
-            <label for="usuario">Usuário:</label>
-            <input type="text" 
-
-
+            <option value="0">--Escolha uma opção --</option>
+            <option value="1">Aluno</option>
+            <option value="2">Funcionário</option>
+            </select>            
+            <label for="usuario"> Nome Usuário:</label>
+            <input type="text"
         </form>
+
+        
+
+        <nav>
+            <ul>
+              <li><a href="#">Início</a></li>
+              <li><a href="#">Cadastros</a></li>
+              <li><a href="#">Empréstimos</a></li>
+              <li><a href="#">Consultas</a></li>
+              <li><a href="#">Relatórios</a></li>
+              <li><a href="#">Sobre</a></li>
+              <li><a href="#">Sair</a></li>
+            </ul>
+          </nav>
+        </header>
+      
+        <main>
+          <section class="cadastros">
+            <div class="card">
+                <image src="./imagens/icone empresa.png" width="100px"></image>
+                Empresa</div>
+            <div class="card">
+                <image src="./imagens/icone Editora.png" width="100px"></image>
+                                Editoras</div>
+            <div class="card">
+                <image src="./imagens/icone livro.jpg" width="100px"></image>
+                Livros</div>
+            <div class="card">
+                <image src="./imagens/icone_pessoas.png" width="100"></image>
+                Leitores</div>
+            <div class="card">
+                <image src="./imagens/icone usuário.jpg" width="100px"></image>
+                
+                Usuários</div>
+          </section>
+        </main>
+      </body>
 
 
 
