@@ -3,59 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Biblioteca - Desenvolvido por Flávio</title>
+    <title>Página de Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 style="text-align:center;">Sistema Bibliotecário</h1>
- 
-    <div class="container">
-        <h2> Cadastro Usuário</h2>
-        <form action="#" method="post">
-            <label for="tipo de usuario">select o tipo de  usuario</label>
-            <select id="tipo de usuario" name="tipo de usuario" required>
-            <option value="0">--Escolha uma opção --</option>
-            <option value="1">Aluno</option>
-            <option value="2">Funcionário</option>
-            </select><br><br>
-            <label for="usuario"> Nome Usuário:</label>
-            <input type="text">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+            <button type="submit"><a href="menu.html">Entrar</a></button>
         </form>
-    </div> 
-
-        <nav>
-            <ul>
-              <li><a href="#" style="color: green;">Início</a></li>
-              <li><a href="#" style="color: green;">Cadastros</a></li>
-              <li><a href="#" style="color: green;">Empréstimos</a></li>
-              <li><a href="#" style="color: green;">Consultas</a></li>
-              <li><a href="#" style="color: green;">Relatórios</a></li>
-              <li><a href="#" style="color: green;">Sobre</a></li>
-              <li><a href="#" style="color: green;">Sair</a></li>
-            </ul>
-
-        </nav>
-        </header>
-      
-        <main>
-          <section class="cadastros">
-            <div class="card">
-                <image src="./imagens/icone empresa.png" width="100px"></image>
-                Empresa</div>
-            <div class="card">
-                <image src="./imagens/icone Editora.png" width="100px"></image>
-                                Editoras</div>
-            <div class="card">
-                <image src="./imagens/icone livro.jpg" width="100px"></image>
-                Livros</div>
-            <div class="card">
-                <image src="./imagens/icone_pessoas.png" width="100"></image>
-                Leitores</div>
-            <div class="card">
-                <image src="./imagens/icone usuário.jpg" width="100px"></image>
-                
-                Usuários</div>
-          </section>    
-        </main>
+    </div>
 </body>
 </html>
