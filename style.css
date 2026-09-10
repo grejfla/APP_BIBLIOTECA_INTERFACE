@@ -1,8 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
-  }
+
   
   header {
     background-color: #004080;
@@ -57,6 +53,225 @@ body {
 .container {
   text-align: center;
 }
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Fundo geral */
+body {
+  background: linear-gradient(135deg, #DCDCDC, #6495ED);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container do login */
+.login-container {
+  background: #1E90FF;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  width: 350px;
+  text-align: center;
+}
+
+/* Título */
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #F0FFF0;
+  font-size: 26px;
+}
+
+/* Labels */
+.login-container label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Inputs */
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s;
+}
+
+.login-container input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Botão */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-container button:hover {
+  background: #388E3C;
+}
+
+/* Links dentro do formulário */
+.login-container a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Importando uma fonte bonita do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* Reset básico de CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilo do Cabeçalho */
+.cabecalho {
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.cabecalho p {
+    font-size: 0.9rem;
+    color: #bdc3c7;
+    margin-top: 5px;
+}
+
+/* Container Principal */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Caixa do Formulário */
+.form-cadastro {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.form-cadastro h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Campos de Input */
+.grupo-input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #34495e;
+    font-size: 0.9rem;
+}
+
+.grupo-input input, 
+.grupo-input select, 
+.grupo-input textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.grupo-input input:focus, 
+.grupo-input select:focus, 
+.grupo-input textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Para colocar ISBN e Ano lado a lado em telas grandes */
+.linha-dupla {
+    display: flex;
+    gap: 15px;
+}
+
+.linha-dupla .grupo-input {
+    flex: 1;
+}
+
+/* Botão de Salvar */
+.btn-salvar {
+    width: 100%;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-salvar:hover {
+    background-color: #219150;
+}
+
+/* Rodapé */
+.rodape {
+    text-align: center;
+    padding: 15px;
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    font-size: 0.85rem;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 500px) {
+    .linha-dupla {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
   
   
   

@@ -1,11 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
+!<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro de Livro - Biblioteca</title>
+    <!-- Ligando o HTML ao arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <header class="cabecalho">
+        <h1>Sistema da Biblioteca</h1>
+        <p>Módulo de Acervo</p>
+    </header>
+
+    <main class="container">
+        <section class="form-cadastro">
+            <h2>Cadastrar Novo Livro</h2>
+            
+            <form action="#" method="POST">
+                <div class="grupo-input">
+                    <label for="titulo">Título do Livro *</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ex: Dom Casmurro" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="autor">Autor(a) *</label>
+                    <input type="text" id="autor" name="autor" placeholder="Ex: Machado de Assis" required>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="grupo-input">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" id="isbn" name="isbn" placeholder="Ex: 978-85-359-0277-8">
+                    </div>
+                    
+                    <div class="grupo-input">
+                        <label for="ano">Ano de Publicação *</label>
+                        <input type="number" id="ano" name="ano" placeholder="Ex: 1899" required>
+                    </div>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="categoria">Categoria / Gênero *</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="" disabled selected>Selecione uma categoria...</option>
+                        <option value="romance">Romance</option>
+                        <option value="ficcao">Ficção Científica</option>
+                        <option value="fantasia">Fantasia</option>
+                        <option value="biografia">Biografia</option>
+                        <option value="didatico">Didático</option>
+                        <option value="infantil">Infantil</option>
+                    </select>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="sinopse">Sinopse ou Descrição</label>
+                    <textarea id="sinopse" name="sinopse" rows="4" placeholder="Breve resumo do livro..."></textarea>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="capa">Imagem da Capa</label>
+                    <input type="file" id="capa" name="capa" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn-salvar">Salvar Livro</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>&copy; 2026 - Sistema de Biblioteca Municipal. Todos os direitos reservados.</p>
+    </footer>
+
 </body>
 </html>
