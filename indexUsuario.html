@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca Digital - Área do Usuário</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">📚 Biblioteca<span>Digital</span></div>
+    <nav>
+        <ul>
+            <li><a href="#painel-emprestimos">Meus Empréstimos</a></li>
+            <li><a href="#painel-reservas">Reservas</a></li>
+            <li><a href="#painel-busca">Buscar Acervo</a></li>
+            <li><a href="#" aria-label="Sair do sistema">Sair</a></li>
+        </ul>
+    </nav>
+    <div class="user-box">
+        <div class="avatar">MS</div>
+        <span>Maria Silva</span>
+    </div>
+</header>
+
+<main>
+    <!-- Coluna lateral: dados do usuário -->
+    <aside class="perfil-card">
+        <div class="avatar-grande">MS</div>
+        <h2>Maria Silva</h2>
+        <p class="matricula">Matrícula: 2026001452</p>
+
+        <dl class="perfil-info">
+            <dt>E-mail</dt>
+            <dd>maria.silva@email.com</dd>
+
+            <dt>Tipo de usuário</dt>
+            <dd>Aluno de graduação</dd>
+
+            <dt>Status</dt>
+            <dd>Ativo</dd>
+
+            <dt>Cadastro válido até</dt>
+            <dd>15/03/2027</dd>
+        </dl>
+
+        <a href="#" class="btn">Editar Perfil</a>
+    </aside>
+
+    <!-- Coluna principal: conteúdo do painel -->
+    <div class="conteudo">
+
+        <!-- Resumo rápido -->
+        <div class="resumo-grid">
+            <div class="resumo-item">
+                <div class="numero">3</div>
+                <div class="rotulo">Livros emprestados</div>
+            </div>
+            <div class="resumo-item">
+                <div class="numero">1</div>
+                <div class="rotulo">Reserva ativa</div>
+            </div>
+            <div class="resumo-item">
+                <div class="numero">0</div>
+                <div class="rotulo">Pendências / multas</div>
+            </div>
+        </div>
+
+        <!-- Busca no acervo -->
+        <section class="painel" id="painel-busca">
+            <h3>Buscar no Acervo</h3>
+            <form class="busca-form" action="#" method="get">
+                <label for="busca-termo" class="visually-hidden">Buscar por título, autor ou ISBN</label>
+                <input type="search" id="busca-termo" name="termo" placeholder="Título, autor ou ISBN">
+
+                <label for="busca-categoria" class="visually-hidden">Categoria</label>
+                <select id="busca-categoria" name="categoria">
+                    <option value="">Todas as categorias</option>
+                    <option value="literatura">Literatura</option>
+                    <option value="direito">Direito</option>
+                    <option value="tecnologia">Tecnologia</option>
+                    <option value="ciencias">Ciências</option>
+                </select>
+
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
+
+        <!-- Empréstimos atuais -->
+        <section class="painel" id="painel-emprestimos">
+            <h3>Meus Empréstimos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Data de devolução</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clean Code</td>
+                        <td>Robert C. Martin</td>
+                        <td>18/09/2026</td>
+                        <td><span class="status ok">Em dia</span></td>
+                        <td><a href="#" class="acao-link">Renovar</a></td>
+                    </tr>
+                    <tr>
+                        <td>Código Civil Comentado</td>
+                        <td>Nelson Nery Jr.</td>
+                        <td>05/09/2026</td>
+                        <td><span class="status atraso">Atrasado</span></td>
+                        <td><a href="#" class="acao-link">Renovar</a></td>
+                    </tr>
+                    <tr>
+                        <td>Introdução aos Algoritmos</td>
+                        <td>Cormen et al.</td>
+                        <td>30/09/2026</td>
+                        <td><span class="status ok">Em dia</span></td>
+                        <td><a href="#" class="acao-link">Renovar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Reservas -->
+        <section class="painel" id="painel-reservas">
+            <h3>Minhas Reservas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Posição na fila</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sapiens: Uma Breve História da Humanidade</td>
+                        <td>Yuval Noah Harari</td>
+                        <td>2º</td>
+                        <td><span class="status reservado">Aguardando</span></td>
+                        <td><a href="#" class="acao-link">Cancelar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    Biblioteca Digital &copy; 2026 — Sistema de Gestão de Biblioteca
+</footer>
+
+</body>
+</html>

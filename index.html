@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form>
-            <label for="usuario">Usuário</label>
-            <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+    <main class="login-container">              
+        <form action="menu.html" method="get" autocomplete="on">
+            <h1>Login</h1>             
+            <div class="campo">
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" autocomplete="username" required>
+            </div>
 
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+            </div>
 
-            <button type="submit"><a href="menu.html">Entrar</a></button>
+            <button type="submit" href="menu.html">Entrar</button>
         </form>
-    </div>
+    </main>
 </body>
 </html>
