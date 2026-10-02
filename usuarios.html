@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Usuário - Sistema Bibliotecário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>Sistema Bibliotecário</h1></header>
+  <main>
+    <form class="formulario" action="#" method="post">
+      <h2>Cadastro Usuário</h2>
+      <label for="tipo">Selecione o tipo de usuário:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="">-- Escolha uma opção --</option>
+        <option value="aluno">Aluno</option>
+        <option value="professor">Professor</option>
+        <option value="funcionario">Funcionário</option>
+      </select>
+      <label for="nome">Nome Usuário:</label>
+      <input type="text" id="nome" name="nome" required>
+      <div class="acoes"><button type="submit">Salvar</button><button type="reset">Limpar</button></div>
+    </form>
+  </main>
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="cadastros.html" class="ativo">Cadastros</a></li>
+      <li><a href="emprestimos.html">Empréstimos</a></li>
+      <li><a href="consultas.html">Consultas</a></li>
+      <li><a href="relatorios.html">Relatórios</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="sair.html">Sair</a></li>
+    </ul>
+  </nav>
+  <section class="cards">
+    <a href="editoras.html"><span class="icone">📚</span>Editoras</a>
+    <a href="livros.html"><span class="icone">📕</span>Livros</a>
+    <a href="usuarios.html"><span class="icone">👤</span>Usuários</a>
+  </section>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Empréstimos - Sistema Bibliotecário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>Sistema Bibliotecário</h1></header>
+  <main>
+    <form class="formulario" action="#" method="post">
+      <h2>Empréstimo</h2>
+      <label for="usuario">Usuário:</label>
+      <select id="usuario" name="usuario" required><option value="">-- Escolha uma opção --</option></select>
+      <label for="livro">Livro:</label>
+      <select id="livro" name="livro" required><option value="">-- Escolha uma opção --</option></select>
+      <label for="data">Data de devolução:</label>
+      <input type="date" id="data" name="data" required>
+      <div class="acoes"><button type="submit">Registrar empréstimo</button></div>
+    </form>
+  </main>
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="cadastros.html">Cadastros</a></li>
+      <li><a href="emprestimos.html" class="ativo">Empréstimos</a></li>
+      <li><a href="consultas.html">Consultas</a></li>
+      <li><a href="relatorios.html">Relatórios</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="sair.html">Sair</a></li>
+    </ul>
+  </nav>
+</body>
+</html>
