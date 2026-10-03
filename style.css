@@ -53,21 +53,45 @@ main {
 .conteudo form { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 
 /* ===== Formulários ===== */
+/* ===== Formulários ===== */
 .formulario {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 8px 12px;
-  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
+
+.formulario .container {
+  display: grid;
+  grid-template-columns: auto 1fr;   /* rótulo | campo */
+  gap: 10px 12px;
+  align-items: center;
+  width: 100%;
+  max-width: 440px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 .formulario h2 {
-  grid-row: span 3;
-  align-self: center;
-  justify-self: end;
+  grid-column: 1 / -1;               /* ocupa as duas colunas */
+  text-align: center;
   font-size: 1.4rem;
   font-weight: 700;
+  margin-bottom: 4px;
 }
+
 .formulario label { text-align: right; font-size: 1rem; }
-.formulario .acoes { grid-column: 2; display: flex; gap: 8px; }
+
+.formulario input { width: 100%; }
+
+.formulario .acoes {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
 
 input, select, textarea {
   padding: 3px 6px;
