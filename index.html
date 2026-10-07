@@ -7,20 +7,48 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header><h1>Sistema Bibliotecário</h1></header>
+
   <main>
-    <div class="conteudo"><h2>Bem-vindo</h2><p>Use o menu para cadastrar, emprestar, consultar e gerar relatórios.</p></div>
+    <div class="conteudo"><h2>Bem-vindo</h2><p>Use o menu para realizar login e cadastrar novo usuário.</p></div>
   </main>
+
+  <main>
+    <form class="formulario" action="#" method="post">
+      <div class="container">
+      <h2>Login</h2>
+      <label for="usuario">Usuário:</label>
+      <select id="usuario" name="usuario" required><option value="">-- Escolha uma opção --</option>
+      <option value="">Funcionário</option>
+      <option value="">Aluno</option>
+      </select>
+      <label for="nome_usuario">Nome Usuário:</label>
+      <input 
+      type="text" 
+      id="nome_usuario" 
+      name="nome_usuario" 
+      placeholder="EX: Willian"
+      >
+      <label for="senha">Senha Usuário:</label>
+      <input 
+      type="text" 
+      id="senha_usuario" 
+      name="senha_usuario" 
+      placeholder="EX: 123456789"
+      >
+      <div class="acoes"><button type="submit">Confirmar Login</button></div>
+      </div>
+    </form>
+  </main>
+
   <nav>
     <ul>
       <li><a href="index.html" class="ativo">Início</a></li>
-      <li><a href="cadastros.html">Cadastros</a></li>
-      <li><a href="emprestimos.html">Empréstimos</a></li>
-      <li><a href="consultas.html">Consultas</a></li>
-      <li><a href="relatorios.html">Relatórios</a></li>
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="sair.html">Sair</a></li>
     </ul>
   </nav>
+
 </body>
 </html>
