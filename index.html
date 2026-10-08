@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Início - Sistema Bibliotecário</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .campos-condicionais { display: none; }
+    .campos-condicionais.visivel { display: block; }
+  </style>
 </head>
 <body>
 
@@ -17,27 +21,68 @@
   <main>
     <form class="formulario" action="#" method="post">
       <div class="container">
-      <h2>Login</h2>
-      <label for="usuario">Usuário:</label>
-      <select id="usuario" name="usuario" required><option value="">-- Escolha uma opção --</option>
-      <option value="">Funcionário</option>
-      <option value="">Aluno</option>
-      </select>
-      <label for="nome_usuario">Nome Usuário:</label>
-      <input 
-      type="text" 
-      id="nome_usuario" 
-      name="nome_usuario" 
-      placeholder="EX: Willian"
-      >
-      <label for="senha">Senha Usuário:</label>
-      <input 
-      type="text" 
-      id="senha_usuario" 
-      name="senha_usuario" 
-      placeholder="EX: 123456789"
-      >
-      <div class="acoes"><button type="submit">Confirmar Login</button></div>
+        <h2>Cadastro de Usuário</h2>
+
+        <label for="usuario">Tipo de usuário:</label>
+        <select id="usuario" name="usuario" required>
+          <option value="">-- Escolha uma opção --</option>
+          <option value="funcionario">Funcionário</option>
+          <option value="aluno">Aluno</option>
+        </select>
+
+        <!-- ========== FUNCIONÁRIO (tabela funcionario) ========== -->
+        <div id="campos-funcionario" class="campos-condicionais">
+          <label for="NomeFuncionario">Nome:</label>
+          <input type="text" id="NomeFuncionario" name="NomeFuncionario"
+                 maxlength="50" placeholder="EX: Willian Souza">
+
+          <label for="SenhaFuncionario">Senha:</label>
+          <input type="password" id="SenhaFuncionario" name="SenhaFuncionario"
+                 maxlength="15" placeholder="Até 15 caracteres">
+
+          <label for="RegistroFuncionario">Registro:</label>
+          <input type="text" id="RegistroFuncionario" name="RegistroFuncionario"
+                 maxlength="10" placeholder="EX: FUNC-001">
+
+          <label for="CPF_Funcionario">CPF:</label>
+          <input type="text" id="CPF_Funcionario" name="CPF_Funcionario"
+                 maxlength="14" inputmode="numeric"
+                 pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
+                 title="Formato: 000.000.000-00"
+                 placeholder="000.000.000-00">
+        </div>
+
+        <!-- ========== ALUNO (tabela aluno) ========== -->
+        <div id="campos-aluno" class="campos-condicionais">
+          <label for="NomeAluno">Nome:</label>
+          <input type="text" id="NomeAluno" name="NomeAluno"
+                 maxlength="50" placeholder="EX: Maria Silva">
+
+          <label for="SenhaAluno">Senha:</label>
+          <input type="password" id="SenhaAluno" name="SenhaAluno"
+                maxlength="20" placeholder="Até 20 caracteres">
+
+          <label for="MatriculaAluno">Matrícula:</label>
+          <input type="text" id="MatriculaAluno" name="MatriculaAluno"
+                 maxlength="9" inputmode="numeric" pattern="\d{1,9}"
+                 title="Somente números, até 9 dígitos"
+                 placeholder="EX: 2024001">
+
+          <label for="EnderecoAluno">Endereço:</label>
+          <input type="text" id="EnderecoAluno" name="EnderecoAluno"
+                 maxlength="100" placeholder="EX: Rua das Flores, 100 - Centro">
+
+          <label for="TurmaAluno">Turma:</label>
+          <input type="text" id="TurmaAluno" name="TurmaAluno"
+                 maxlength="50" placeholder="EX: 3º Ano B">
+
+          <label for="ContatoAluno">Contato:</label>
+          <input type="text" id="ContatoAluno" name="ContatoAluno"
+                 maxlength="70" placeholder="EX: (31) 99999-9999 ou email@exemplo.com">
+        </div>
+
+          <p id="mensagem" role="status"></p>
+          <div class="acoes"><button type="submit">Confirmar Cadastro</button></div>
       </div>
     </form>
   </main>
@@ -49,6 +94,39 @@
       <li><a href="sair.html">Sair</a></li>
     </ul>
   </nav>
+
+  <script>
+    const select = document.getElementById('usuario');
+    const blocos = {
+      funcionario: document.getElementById('campos-funcionario'),
+      aluno: document.getElementById('campos-aluno')
+    };
+
+    function atualizarCampos() {
+      // Esconde todos, desabilita e limpa os inputs
+      Object.values(blocos).forEach(bloco => {
+        bloco.classList.remove('visivel');
+        bloco.querySelectorAll('input').forEach(i => {
+          i.disabled = true;
+          i.required = false;
+          i.value = '';
+        });
+      });
+
+      // Mostra só o bloco escolhido; todas as colunas são NOT NULL
+      const bloco = blocos[select.value];
+      if (bloco) {
+        bloco.classList.add('visivel');
+        bloco.querySelectorAll('input').forEach(i => {
+          i.disabled = false;
+          i.required = true;
+        });
+      }
+    }
+
+    select.addEventListener('change', atualizarCampos);
+    atualizarCampos();
+  </script>
 
 </body>
 </html>
