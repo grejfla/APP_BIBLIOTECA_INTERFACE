@@ -183,3 +183,26 @@ nav a.ativo { border-bottom-color: var(--destaque); }
   nav ul { gap: 16px; }
   .cards .icone { width: 90px; height: 90px; font-size: 2.5rem; }
 }
+
+
+/* ===== Campos dinâmicos do login ===== */
+.campos-condicionais {
+  display: none;
+}
+
+.campos-condicionais.visivel {
+  display: block;
+}
+
+/* Organização dos campos exibidos */
+.campos-condicionais label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.campos-condicionais input {
+  display: block;
+  width: 100%;
+  padding: 6px 8px;
+}

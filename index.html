@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Início - Sistema Bibliotecário</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_index.css">
   <style>
     .campos-condicionais { display: none; }
     .campos-condicionais.visivel { display: block; }
@@ -15,13 +15,13 @@
   <header><h1>Sistema Bibliotecário</h1></header>
 
   <main>
-    <div class="conteudo"><h2>Bem-vindo</h2><p>Use o menu para realizar login e cadastrar novo usuário.</p></div>
+    <div class="conteudo"><h2>Bem-vindo</h2><p>Use o menu para realizar login.</p></div>
   </main>
 
   <main>
-    <form class="formulario" action="#" method="post">
+    <form id="formLogin" class="formulario" action="#" method="post">
       <div class="container">
-        <h2>Cadastro de Usuário</h2>
+        <h2>Login de Usuário</h2>
 
         <label for="usuario">Tipo de usuário:</label>
         <select id="usuario" name="usuario" required>
@@ -32,58 +32,35 @@
 
         <!-- ========== FUNCIONÁRIO (tabela funcionario) ========== -->
         <div id="campos-funcionario" class="campos-condicionais">
-          <label for="NomeFuncionario">Nome:</label>
-          <input type="text" id="NomeFuncionario" name="NomeFuncionario"
-                 maxlength="50" placeholder="EX: Willian Souza">
+          <label for="RegistroFuncionario">Registro:</label>
+          <input type="text" id="RegistroFuncionario"
+                 name="RegistroFuncionario" maxlength="10">
 
           <label for="SenhaFuncionario">Senha:</label>
-          <input type="password" id="SenhaFuncionario" name="SenhaFuncionario"
-                 maxlength="15" placeholder="Até 15 caracteres">
-
-          <label for="RegistroFuncionario">Registro:</label>
-          <input type="text" id="RegistroFuncionario" name="RegistroFuncionario"
-                 maxlength="10" placeholder="EX: FUNC-001">
-
-          <label for="CPF_Funcionario">CPF:</label>
-          <input type="text" id="CPF_Funcionario" name="CPF_Funcionario"
-                 maxlength="14" inputmode="numeric"
-                 pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
-                 title="Formato: 000.000.000-00"
-                 placeholder="000.000.000-00">
+          <input type="password" id="SenhaFuncionario"
+                 name="SenhaFuncionario" maxlength="15">
         </div>
 
         <!-- ========== ALUNO (tabela aluno) ========== -->
         <div id="campos-aluno" class="campos-condicionais">
-          <label for="NomeAluno">Nome:</label>
-          <input type="text" id="NomeAluno" name="NomeAluno"
-                 maxlength="50" placeholder="EX: Maria Silva">
+          <label for="MatriculaAluno">Matrícula:</label>
+          <input type="text" id="MatriculaAluno"
+                 name="MatriculaAluno" inputmode="numeric">
 
           <label for="SenhaAluno">Senha:</label>
-          <input type="password" id="SenhaAluno" name="SenhaAluno"
-                maxlength="20" placeholder="Até 20 caracteres">
-
-          <label for="MatriculaAluno">Matrícula:</label>
-          <input type="text" id="MatriculaAluno" name="MatriculaAluno"
-                 maxlength="9" inputmode="numeric" pattern="\d{1,9}"
-                 title="Somente números, até 9 dígitos"
-                 placeholder="EX: 2024001">
-
-          <label for="EnderecoAluno">Endereço:</label>
-          <input type="text" id="EnderecoAluno" name="EnderecoAluno"
-                 maxlength="100" placeholder="EX: Rua das Flores, 100 - Centro">
-
-          <label for="TurmaAluno">Turma:</label>
-          <input type="text" id="TurmaAluno" name="TurmaAluno"
-                 maxlength="50" placeholder="EX: 3º Ano B">
-
-          <label for="ContatoAluno">Contato:</label>
-          <input type="text" id="ContatoAluno" name="ContatoAluno"
-                 maxlength="70" placeholder="EX: (31) 99999-9999 ou email@exemplo.com">
+          <input type="password" id="SenhaAluno"
+                 name="SenhaAluno" maxlength="20">
         </div>
 
           <p id="mensagem" role="status"></p>
-          <div class="acoes"><button type="submit">Confirmar Cadastro</button></div>
+          <div class="acoes"><button type="submit">Confirmar login</button></div>
+
+          <div class="mensagem-cadastro">
+            <p>Ainda não possui cadastro?</p>
+            <a href="cadastro_usuario.html">Clique aqui para se cadastrar</a>
+          </div>
       </div>
+      
     </form>
   </main>
 
@@ -91,7 +68,7 @@
     <ul>
       <li><a href="index.html" class="ativo">Início</a></li>
       <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="sair.html">Sair</a></li>
+      <li><a href="index.html">Sair</a></li>
     </ul>
   </nav>
 
@@ -128,5 +105,6 @@
     atualizarCampos();
   </script>
 
+<script src="scripts/index.js"></script>
 </body>
 </html>

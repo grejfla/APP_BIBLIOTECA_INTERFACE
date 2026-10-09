@@ -1,41 +1,108 @@
-const API_URL = 'http://127.0.0.1:5000';
-const form = document.querySelector('.formulario');
-const mensagem = document.getElementById('mensagem');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+const API_URL = "http://127.0.0.1:5000";
 
-  const tipo = select.value; // "funcionario" ou "aluno"
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("formLogin");
+    const select = document.getElementById("usuario");
+    const mensagem = document.getElementById("mensagem");
 
-  // FormData ignora inputs desabilitados, então só vão os campos do bloco visível
-  const dados = Object.fromEntries(new FormData(form));
-  delete dados.usuario; // o select não é coluna do banco
+    const blocos = {
+        funcionario: document.getElementById("campos-funcionario"),
+        aluno: document.getElementById("campos-aluno")
+    };
 
-  if (tipo === 'aluno') {
-    dados.MatriculaAluno = Number(dados.MatriculaAluno); // coluna int
-  }
+    function atualizarCampos() {
+        Object.entries(blocos).forEach(([tipo, bloco]) => {
+            const selecionado = select.value === tipo;
 
-  mensagem.textContent = 'Enviando...';
+            bloco.classList.toggle("visivel", selecionado);
 
-  try {
-    const resposta = await fetch(`${API_URL}/${tipo}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(dados)
-    });
+            bloco.querySelectorAll("input").forEach(input => {
+                input.disabled = !selecionado;
+                input.required = false;
+            });
+        });
 
-    const corpo = await resposta.json().catch(() => ({}));
+        if (select.value === "funcionario") {
+            document.getElementById("RegistroFuncionario").required = true;
+            document.getElementById("SenhaFuncionario").required = true;
+        }
 
-    if (!resposta.ok) {
-      mensagem.textContent = corpo.erro || `Erro ${resposta.status} ao cadastrar.`;
-      return;
+        if (select.value === "aluno") {
+            document.getElementById("MatriculaAluno").required = true;
+            document.getElementById("SenhaAluno").required = true;
+        }
+
+        mensagem.textContent = "";
     }
 
-    mensagem.textContent = 'Cadastro realizado com sucesso!';
-    form.reset();
-    atualizarCampos(); // volta ao estado inicial (blocos escondidos)
-  } catch (erro) {
-    mensagem.textContent = 'Não foi possível conectar à API. Ela está rodando?';
-    console.error(erro);
-  }
+    select.addEventListener("change", atualizarCampos);
+    atualizarCampos();
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const tipo = select.value;
+        let identificacao;
+        let senha;
+
+        if (tipo === "funcionario") {
+            identificacao = document
+                .getElementById("RegistroFuncionario")
+                .value.trim();
+
+            senha = document.getElementById("SenhaFuncionario").value;
+
+        } else if (tipo === "aluno") {
+            identificacao = document
+                .getElementById("MatriculaAluno")
+                .value.trim();
+
+            senha = document.getElementById("SenhaAluno").value;
+
+        } else {
+            mensagem.textContent = "Selecione o tipo de usuário.";
+            return;
+        }
+
+        if (!identificacao || !senha) {
+            mensagem.textContent = "Preencha a identificação e a senha.";
+            return;
+        }
+
+        mensagem.textContent = "Consultando o banco de dados...";
+
+        try {
+            const resposta = await fetch(`${API_URL}/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    tipoUsuario: tipo,
+                    identificacao: identificacao,
+                    senha: senha
+                })
+            });
+
+            const resultado = await resposta.json();
+
+            if (!resposta.ok) {
+                mensagem.textContent =
+                    resultado.erro || "Credenciais inválidas.";
+                return;
+            }
+
+            mensagem.textContent =
+                `Login realizado. Bem-vindo(a), ${resultado.nome}!`;
+
+            // Altere se a página de destino tiver outro nome.
+            window.location.href = "cadastros.html";
+
+        } catch (erro) {
+            console.error("Erro ao realizar login:", erro);
+            mensagem.textContent =
+                "Falha de conexão. Verifique se a API Flask está ativa.";
+        }
+    });
 });
