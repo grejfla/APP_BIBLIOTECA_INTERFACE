@@ -4,25 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Empréstimos - Sistema Bibliotecário</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_emprestimos.css">
 </head>
 <body>
   <header><h1>Sistema Bibliotecário</h1></header>
   <main>
-    <form class="formulario" action="#" method="post">
-      <div class="container">
-      <h2>Empréstimo</h2>
-      <label for="usuario">Usuário:</label>
-      <select id="usuario" name="usuario" required><option value="">-- Escolha uma opção --</option></select>
-      <label for="livro">Livro:</label>
-      <select id="livro" name="livro" required><option value="">-- Escolha uma opção --</option></select>
-      <label for="data">Data do empréstimo</label>
-      <input type="date" id="data" name="data" required>
-      <label for="data">Data de devolução:</label>
-      <input type="date" id="data" name="data" required>
-      <div class="acoes"><button type="submit">Registrar empréstimo</button></div>
+    
+<main>
+  <form id="formEmprestimo" class="formulario">
+    <div class="container">
+      <h2>Registro de Empréstimo</h2>
+
+      <label for="tipoUsuario">Tipo de usuário:</label>
+      <select id="tipoUsuario" required>
+        <option value="">Selecione</option>
+        <option value="funcionario">Funcionário</option>
+        <option value="aluno">Aluno</option>
+      </select>
+
+      <label for="pesquisaUsuario">Pesquisar usuário:</label>
+      <input
+        type="search"
+        id="pesquisaUsuario"
+        placeholder="Digite o nome do usuário"
+        disabled
+      >
+
+      <label for="usuarioSelecionado">Usuário:</label>
+      <select id="usuarioSelecionado" required disabled>
+        <option value="">Selecione o usuário</option>
+      </select>
+
+      <label for="pesquisaLivro">Pesquisar livro:</label>
+      <input
+        type="search"
+        id="pesquisaLivro"
+        placeholder="Título, autor, editora, ISBN ou categoria"
+      >
+
+      <label for="livroSelecionado">Livro:</label>
+      <select id="livroSelecionado" required>
+        <option value="">Carregando livros...</option>
+      </select>
+
+      <label for="dataEmprestimo">Data do empréstimo:</label>
+      <input type="date" id="dataEmprestimo" required>
+
+      <label for="previsaoDevolucao">Previsão de devolução:</label>
+      <input type="date" id="previsaoDevolucao" required>
+
+      <p id="mensagemEmprestimo" role="status"></p>
+
+      <div class="acoes">
+        <button type="submit">Registrar empréstimo</button>
       </div>
-    </form>
+    </div>
+  </form>
+</main>
+
   </main>
   <nav>
     <ul>
@@ -35,5 +74,6 @@
       <li><a href="index.html">Sair</a></li>
     </ul>
   </nav>
+  <script src="scripts/emprestimos.js"></script>
 </body>
 </html>
