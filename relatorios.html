@@ -8,15 +8,34 @@
 </head>
 <body>
   <header><h1>Sistema Bibliotecário</h1></header>
+
   <main>
     <div class="conteudo">
       <h2>Relatórios</h2>
-      <form action="#" method="get">
-        <select name="relatorio"><option>Empréstimos em aberto</option><option>Livros mais emprestados</option><option>Usuários cadastrados</option></select>
+
+      <form id="formRelatorio">
+        <select id="tipoRelatorio" name="relatorio">
+          <option value="abertos">Empréstimos em aberto</option>
+          <option value="livros">Livros cadastrados</option>
+          <option value="usuarios">Usuários cadastrados</option>
+        </select>
         <button type="submit">Gerar relatório</button>
+        <button type="button" id="btnImprimir" hidden>Imprimir</button>
       </form>
+
+      <p id="mensagemRelatorio" role="status"></p>
+
+      <section id="areaRelatorio" hidden>
+        <h3 id="tituloRelatorio"></h3>
+        <p id="resumoRelatorio"></p>
+        <table>
+          <thead id="cabecalhoRelatorio"></thead>
+          <tbody id="corpoRelatorio"></tbody>
+        </table>
+      </section>
     </div>
   </main>
+
   <nav>
     <ul>
       <li><a href="index.html">Início</a></li>
@@ -28,5 +47,7 @@
       <li><a href="index.html">Sair</a></li>
     </ul>
   </nav>
+
+  <script src="scripts/relatorios.js"></script>
 </body>
 </html>
