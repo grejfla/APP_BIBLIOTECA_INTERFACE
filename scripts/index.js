@@ -93,11 +93,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            mensagem.textContent =
+                        mensagem.textContent =
                 `Login realizado. Bem-vindo(a), ${resultado.nome}!`;
 
-            // Altere se a página de destino tiver outro nome.
-            window.location.href = "cadastros.html";
+            // Guarda os dados do usuário para as outras páginas.
+            sessionStorage.setItem("usuario", JSON.stringify({
+                id: resultado.id,
+                nome: resultado.nome,
+                tipoUsuario: resultado.tipoUsuario
+            }));
+
+            // Aluno vai para a área do usuário; funcionário para a área administrativa.
+            window.location.href =
+                resultado.tipoUsuario === "aluno"
+                    ? "indexUsuario.html"
+                    : "cadastros.html";
 
         } catch (erro) {
             console.error("Erro ao realizar login:", erro);

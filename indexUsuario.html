@@ -12,145 +12,81 @@
     <div class="logo">📚 Biblioteca<span>Digital</span></div>
     <nav>
         <ul>
-            <li><a href="#painel-emprestimos">Meus Empréstimos</a></li>
-            <li><a href="#painel-reservas">Reservas</a></li>
+            <li><a href="#painel-andamento">Em andamento</a></li>
+            <li><a href="#painel-historico">Histórico</a></li>
             <li><a href="#painel-busca">Buscar Acervo</a></li>
-            <li><a href="#" aria-label="Sair do sistema">Sair</a></li>
+            <li><a href="#" id="btnSair">Sair</a></li>
         </ul>
     </nav>
     <div class="user-box">
-        <div class="avatar">MS</div>
-        <span>Maria Silva</span>
+        <div class="avatar" id="avatarPequeno">?</div>
+        <span id="nomeHeader"></span>
     </div>
 </header>
 
 <main>
-    <!-- Coluna lateral: dados do usuário -->
     <aside class="perfil-card">
-        <div class="avatar-grande">MS</div>
-        <h2>Maria Silva</h2>
-        <p class="matricula">Matrícula: 2026001452</p>
-
-        <dl class="perfil-info">
-            <dt>E-mail</dt>
-            <dd>maria.silva@email.com</dd>
-
-            <dt>Tipo de usuário</dt>
-            <dd>Aluno de graduação</dd>
-
-            <dt>Status</dt>
-            <dd>Ativo</dd>
-
-            <dt>Cadastro válido até</dt>
-            <dd>15/03/2027</dd>
-        </dl>
-
-        <a href="#" class="btn">Editar Perfil</a>
+        <div class="avatar-grande" id="avatarGrande">?</div>
+        <h2 id="nomePerfil">Carregando...</h2>
+        <p class="matricula" id="identificacaoPerfil"></p>
+        <dl class="perfil-info" id="infoPerfil"></dl>
     </aside>
 
-    <!-- Coluna principal: conteúdo do painel -->
     <div class="conteudo">
+        <p id="mensagemGeral" role="status"></p>
 
-        <!-- Resumo rápido -->
         <div class="resumo-grid">
             <div class="resumo-item">
-                <div class="numero">3</div>
-                <div class="rotulo">Livros emprestados</div>
+                <div class="numero" id="resAndamento">0</div>
+                <div class="rotulo">Em andamento</div>
             </div>
             <div class="resumo-item">
-                <div class="numero">1</div>
-                <div class="rotulo">Reserva ativa</div>
+                <div class="numero" id="resAtraso">0</div>
+                <div class="rotulo">Em atraso</div>
             </div>
             <div class="resumo-item">
-                <div class="numero">0</div>
-                <div class="rotulo">Pendências / multas</div>
+                <div class="numero" id="resDevolvidos">0</div>
+                <div class="rotulo">Devolvidos</div>
             </div>
         </div>
 
-        <!-- Busca no acervo -->
         <section class="painel" id="painel-busca">
             <h3>Buscar no Acervo</h3>
-            <form class="busca-form" action="#" method="get">
-                <label for="busca-termo" class="visually-hidden">Buscar por título, autor ou ISBN</label>
-                <input type="search" id="busca-termo" name="termo" placeholder="Título, autor ou ISBN">
-
-                <label for="busca-categoria" class="visually-hidden">Categoria</label>
-                <select id="busca-categoria" name="categoria">
+            <form class="busca-form" id="formBusca">
+                <input type="search" id="buscaTermo" placeholder="Título, autor ou ISBN">
+                <select id="buscaCategoria">
                     <option value="">Todas as categorias</option>
-                    <option value="literatura">Literatura</option>
-                    <option value="direito">Direito</option>
-                    <option value="tecnologia">Tecnologia</option>
-                    <option value="ciencias">Ciências</option>
                 </select>
-
                 <button type="submit">Buscar</button>
             </form>
+            <table id="tabelaBusca" hidden>
+                <thead>
+                    <tr><th>Título</th><th>Autor</th><th>Categoria</th><th>Status</th></tr>
+                </thead>
+                <tbody id="corpoBusca"></tbody>
+            </table>
+            <p id="mensagemBusca" role="status"></p>
         </section>
 
-        <!-- Empréstimos atuais -->
-        <section class="painel" id="painel-emprestimos">
-            <h3>Meus Empréstimos</h3>
+        <section class="painel" id="painel-andamento">
+            <h3>Empréstimos em andamento</h3>
             <table>
                 <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Autor</th>
-                        <th>Data de devolução</th>
-                        <th>Status</th>
-                        <th>Ação</th>
-                    </tr>
+                    <tr><th>Título</th><th>Autor</th><th>Empréstimo</th><th>Devolução prevista</th><th>Status</th><th>Ação</th></tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Clean Code</td>
-                        <td>Robert C. Martin</td>
-                        <td>18/09/2026</td>
-                        <td><span class="status ok">Em dia</span></td>
-                        <td><a href="#" class="acao-link">Renovar</a></td>
-                    </tr>
-                    <tr>
-                        <td>Código Civil Comentado</td>
-                        <td>Nelson Nery Jr.</td>
-                        <td>05/09/2026</td>
-                        <td><span class="status atraso">Atrasado</span></td>
-                        <td><a href="#" class="acao-link">Renovar</a></td>
-                    </tr>
-                    <tr>
-                        <td>Introdução aos Algoritmos</td>
-                        <td>Cormen et al.</td>
-                        <td>30/09/2026</td>
-                        <td><span class="status ok">Em dia</span></td>
-                        <td><a href="#" class="acao-link">Renovar</a></td>
-                    </tr>
-                </tbody>
+                <tbody id="corpoAndamento"></tbody>
             </table>
         </section>
 
-        <!-- Reservas -->
-        <section class="painel" id="painel-reservas">
-            <h3>Minhas Reservas</h3>
+        <section class="painel" id="painel-historico">
+            <h3>Histórico de empréstimos</h3>
             <table>
                 <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Autor</th>
-                        <th>Posição na fila</th>
-                        <th>Status</th>
-                        <th>Ação</th>
-                    </tr>
+                    <tr><th>Título</th><th>Autor</th><th>Empréstimo</th><th>Devolvido em</th></tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Sapiens: Uma Breve História da Humanidade</td>
-                        <td>Yuval Noah Harari</td>
-                        <td>2º</td>
-                        <td><span class="status reservado">Aguardando</span></td>
-                        <td><a href="#" class="acao-link">Cancelar</a></td>
-                    </tr>
-                </tbody>
+                <tbody id="corpoHistorico"></tbody>
             </table>
         </section>
-
     </div>
 </main>
 
@@ -158,5 +94,6 @@
     Biblioteca Digital &copy; 2026 — Sistema de Gestão de Biblioteca
 </footer>
 
+<script src="scripts/indexUsuario.js"></script>
 </body>
 </html>
